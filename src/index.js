@@ -13,15 +13,17 @@ import rootReduce from './reducer'
 import {BrowserRouter as Router} from 'react-router-dom'
 import routes from './router/routes';
 import Nav from './router/nav'
+import Home from './components/home'
+import Kuayu from './kuayu'
 const store = createStore(rootReduce, composeWithDevTools(applyMiddleware(logger,thunk)));
 ReactDOM.render(
   <Provider store = {store}>
-    <Router routes={routes}>
+    <Router routes={routes}>  
       <Nav></Nav>
-
       {routes}
     </Router>
      <App></App>
+     {/* <Kuayu></Kuayu> */}
   </Provider>,
   document.getElementById('root')
 );

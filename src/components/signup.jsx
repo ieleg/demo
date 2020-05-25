@@ -3,17 +3,29 @@ import SignForm from './signform'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import * as signAction  from '../actions/signAction'
+import * as flashMessage  from '../actions/flashMessage'
 
 
-export default class SignUp extends React.Component{
+
+class SignUp extends React.Component{
+
   render(){
     return(
       <div>
-
-        <SignForm></SignForm>
+        <SignForm history={this.props.history} 
+        signAction={this.props.signAction}
+        flashMessage={this.props.flashMessage}
+        ></SignForm>
       </div>
     )
   }
 }
 
-// export default connect(null,)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    signAction:bindActionCreators(signAction,dispatch) ,
+    flashMessage:bindActionCreators(flashMessage,dispatch)
+  }
+}
+
+export default connect(null,mapDispatchToProps)(SignUp)

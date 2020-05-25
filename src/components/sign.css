@@ -1,0 +1,9 @@
+.error{
+  border: 1px rgba(207, 0, 15, 15) solid;
+  box-shadow: 1px 0px 2px 1px rgba(207, 0, 15, .5);
+}
+
+.input-label{
+  display: inline-block;
+  width: 15%;
+}

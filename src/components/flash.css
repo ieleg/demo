@@ -1,0 +1,18 @@
+.tip{
+  margin: 0 auto;
+  height: 5vh;
+  line-height: 5vh;
+  width: 80%;
+  background-color:#26c281;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: 20px;
+  position: relative;
+}
+.delete-mes{
+  position: absolute;
+  right: 0;
+ 
+}

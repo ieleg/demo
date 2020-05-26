@@ -26,7 +26,7 @@ export default class SignForm extends React.Component{
     // console.log(this.state);
     this.props.signAction.userSignReq(this.state).then(
       (res)=>{
-        console.log(res);
+        // console.log(res);
         this.props.flashMessage.addFlashMessage({
           type:"success",
           text:'欢迎用户'+this.state.username+' '+"注册成功"
@@ -36,10 +36,8 @@ export default class SignForm extends React.Component{
     .catch(e=>{
       // console.log(e.response);
       //如果返回的是400错误码，得到报文中的错误信息
-      // this.setState({errors:e.response.data,isLoading:false})
-      console.log(e);
-      
-      console.log("注册失败");      
+      this.setState({errors:e.response.data,isLoading:false})
+ 
 
     })
     
@@ -74,6 +72,7 @@ export default class SignForm extends React.Component{
         <div>
           <label className={"input-label"}>密码</label>
           <input 
+            
             type="password"
             name='password'
             value={this.state.password}

@@ -6,7 +6,7 @@ class LoginPage extends React.Component{
   render(){
     return(
       <div>
-        <LoginForm></LoginForm>
+        <LoginForm history={this.props.history}></LoginForm>
       </div>
     )
   }

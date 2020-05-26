@@ -16,27 +16,36 @@ import {connect} from 'react-redux'
       [e.target.name]:e.target.value
     })
   }
-  onSubmit = e => {
+  onSubmit2 = e => {
+    console.log(123); 
+    // console.log(this.state);
      e.preventDefault();
-     this.props.login(this.state).then(ers => {
-       console.log('success');  
-     }).catch(err => {
-       console.log(err.response);
+     this.props.login(this.state).then(res => {
        
+       console.log(res);  
+       this.props.history.push('/');
+
+     }).catch(err => {
+      //  console.log(err);
+       
+       this.setState({
+         errors:err.response.data
+       })
      })
   }
   render(){
+    const {errors,isLoading} = this.state;
     return(
-      <form onSubmit={this.onSubmit}> 
+      <form onSubmit={this.onSubmit2}> 
         <h1>登录</h1>
+        {errors.err && <span style={{color:'red'}}>{errors.err}</span>}
         <div>
           <label className={"input-label"}>用户名</label>
           <input 
             type="text"
             name='username'
             value={this.state.username}
-            onChange={this.onChange}/>
-              
+            onChange={this.onChange}/>     
         </div>
         <div>
           <label className={"input-label"}>密码</label>
